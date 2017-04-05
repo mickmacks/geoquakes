@@ -24,6 +24,10 @@ $(document).on("ready", function() {
 	// declare variable for each string
 	var mag = quake.properties.mag;
 	var place = quake.properties.place;
+	var lat = quake.geometry.coordinates[0];
+	var lng = quake.geometry.coordinates[1];
+
+
 	console.log(mag);
 
    	$('#info').append("<p>"+ "M " + mag + " - " + place + "</p>");
