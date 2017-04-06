@@ -2,6 +2,12 @@
 console.log('working');
 // define globals
 var weekly_quakes_endpoint = "http://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/4.5_week.geojson";
+var icon = {
+    url: "earthquake.png", // url
+    scaledSize: new google.maps.Size(30, 30), // scaled size
+    origin: new google.maps.Point(0,0), // origin
+    anchor: new google.maps.Point(0, 0) // anchor
+};
 
 $(document).on("ready", function() {
 
@@ -53,6 +59,7 @@ function onSuccess(json) {
       position: new google.maps.LatLng(lat, lng),
       map: map,
       title: quake.properties.title,
+      icon: icon
     });
 
   }
