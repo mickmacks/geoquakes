@@ -134,11 +134,19 @@ function onSuccess(json) {
     lat = quake.geometry.coordinates[1];
     lng = quake.geometry.coordinates[0];
 
-    new google.maps.Marker({
+    var infowindow = new google.maps.InfoWindow({
+      content: '<div>' + quake.properties.title + '</div>'
+    });
+
+    var marker = new google.maps.Marker({
       position: new google.maps.LatLng(lat, lng),
       map: map,
       title: quake.properties.title,
       icon: icon
+    });
+
+    marker.addListener('click', function() {
+      infowindow.open(map, marker);
     });
 
   }
